@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
-    {
+    public function register(Request $request){
 
         $validated = $request->validate([
             'name' => 'required|string',
@@ -29,7 +28,7 @@ class AuthController extends Controller
         $token = $user->createToken('token')->plainTextToken;
 
         return response()->json([
-            'message' => 'utilisateur cree avec succes',
+            'message' => 'user cree avec succes',
             'user' => $user,
             'token' => $token,
         ], 201);
@@ -73,4 +72,5 @@ class AuthController extends Controller
         ]);
     }
 }
+
 
